@@ -1,0 +1,26 @@
+header {
+    background-color: #16a085;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+
+
+ul {
+    display: flex;
+    gap: 200px;
+    justify-content: center;
+}
+
+ul li {
+    list-style: none;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s all ease-in-out;
+}
+
+ul li:hover {
+    color: #f1c40f;
+}
