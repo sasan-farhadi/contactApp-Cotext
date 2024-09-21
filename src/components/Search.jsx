@@ -1,7 +1,7 @@
 const Search = () => {
     return (
         <div>
-            Search
+            <input type="text" />
         </div>
     )
 }

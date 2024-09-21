@@ -5,6 +5,7 @@ import { useContext, useEffect } from 'react';
 import { ContactContext } from '../App';
 import { regex, regexEn } from './helpers/regex'
 import { useNavigate } from 'react-router-dom';
+import Search from './Search';
 
 const Home = () => {
 

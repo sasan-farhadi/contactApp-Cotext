@@ -2,7 +2,6 @@ import Home from "./components/Home"
 import { Routes, Route, Navigate } from 'react-router-dom'
 import List from "./components/List"
 import { createContext, useReducer, useState } from "react"
-import ListItem from "./components/ListItem"
 export const ContactContext = createContext()
 
 const App = () => {
@@ -36,9 +35,7 @@ const App = () => {
           <Route path="add" element={<Home />} />
           <Route path="list" element={<List />} />
           <Route path="*" element={<h1>Page Not Found</h1>} />
-          {/* <Route element={<ListItem />} /> */}
         </Routes>
-        {/* <ListItem /> */}
       </ContactContext.Provider>
     </div>
   )
