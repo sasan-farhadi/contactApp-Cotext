@@ -8,7 +8,17 @@ import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
 
-    const { contact, setContact, contacts, setContacts, editRecordId  } = useContext(ContactContext)
+    const {
+        contact,
+        setContact,
+        contacts,
+        setContacts,
+        editRecordId,
+        showBtnAdd,
+        showBtnEdit,
+        setShowBtnAdd,
+        setShowBtnEdit
+    } = useContext(ContactContext)
 
     const changeHandler = event => {
         const name = event.target.name
@@ -31,8 +41,8 @@ const Home = () => {
         localStorage.setItem("contacts", JSON.stringify(contacts))
     })
 
-
     const addHanlder = () => {
+
         if (!contact.fullname || !contact.email || !contact.phone) {
             alert("enter valid data!")
             return
@@ -60,7 +70,13 @@ const Home = () => {
         newEditContact.phone = contact.phone
         setContacts(contacts => ([...contacts]))
         saveLoaclstorage()
+        setShowBtnAdd("block")
+        setShowBtnEdit("none")
         nav('/list')
+
+        setContact({
+            id: '', fullname: '', email: '', phone: ''
+        })
     }
 
     return (
@@ -83,8 +99,8 @@ const Home = () => {
                         )
                     })
                 }
-                <button onClick={addHanlder}>Add</button>
-                <button  onClick={applyEditHandler}>Edit</button>
+                <button style={{ display: showBtnAdd }} onClick={addHanlder}>Add</button>
+                <button style={{ display: showBtnEdit }} onClick={applyEditHandler}>Edit</button>
             </div>
         </>
     )

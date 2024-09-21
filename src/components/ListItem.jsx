@@ -4,7 +4,14 @@ import { ContactContext } from '../App'
 import { useNavigate } from 'react-router-dom'
 
 const ListItem = ({ data: { id, fullname, email, phone } }) => {
-    const { contacts, setContacts, setContact, contact, setEditRecordId } = useContext(ContactContext)
+    const {
+        contacts,
+        setContacts,
+        setContact,
+        setEditRecordId,
+        setShowBtnAdd,
+        setShowBtnEdit,
+    } = useContext(ContactContext)
 
     const deleteHandler = (id) => {
         console.log(contacts, id)
@@ -23,9 +30,11 @@ const ListItem = ({ data: { id, fullname, email, phone } }) => {
                 email: contactEdit.email,
                 phone: contactEdit.phone,
             })
+        setEditRecordId(id)
+        setShowBtnAdd("none")
+        setShowBtnEdit("block")
         nav('/add')
     }
-    console.log(contact)
 
     return (
         <tr>

@@ -11,7 +11,7 @@
     box-shadow: 6px 8px 22px 0px rgba(0, 0, 0, 0.75);
 }
 
-input {
+.contact input {
     width: 400px;
     height: 45px;
     margin-bottom: 30px;
@@ -21,7 +21,7 @@ input {
     font-size: 20px;
 }
 
-input:focus {
+.contact input:focus {
     outline: none;
     border: 2px solid #f1c40f;
 }
@@ -57,13 +57,13 @@ input:focus {
 }
 
 
-button:hover {
+.contact button:hover {
     opacity: 1;
     transform: scale(1.01);
 }
 
 
-button:last-child:hover {
+.contact button:last-child:hover {
     opacity: 1;
     transform: scale(1.01);
 }

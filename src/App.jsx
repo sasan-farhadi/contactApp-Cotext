@@ -5,19 +5,6 @@ import { createContext, useReducer, useState } from "react"
 import ListItem from "./components/ListItem"
 export const ContactContext = createContext()
 
-const reducer = (state, action) => {
-  switch (action) {
-    case "edit":
-      state("block")
-      break;
-    case "apply":
-      state("none")
-      break;
-    default:
-      throw new Error("Invalid Action")
-  }
-}
-
 const App = () => {
   const [contact, setContact] = useState({
     id: '', fullname: '', email: '', phone: ''
@@ -25,7 +12,8 @@ const App = () => {
   const [contacts, setContacts] = useState(JSON.parse(localStorage.getItem("contacts")) || [])
   const [editRecordId, setEditRecordId] = useState()
 
-  const [editButton, dispatch] = useReducer(reducer, "")
+  const [showBtnAdd, setShowBtnAdd] = useState("block")
+  const [showBtnEdit, setShowBtnEdit] = useState("none")
 
   return (
     <div>
@@ -37,8 +25,10 @@ const App = () => {
           setContacts,
           editRecordId,
           setEditRecordId,
-          editButton,
-          dispatch
+          setShowBtnAdd,
+          showBtnAdd,
+          setShowBtnEdit,
+          showBtnEdit
         }}>
 
         <Routes>
@@ -46,7 +36,7 @@ const App = () => {
           <Route path="add" element={<Home />} />
           <Route path="list" element={<List />} />
           <Route path="*" element={<h1>Page Not Found</h1>} />
-          <Route element={<ListItem />} />
+          {/* <Route element={<ListItem />} /> */}
         </Routes>
         {/* <ListItem /> */}
       </ContactContext.Provider>
