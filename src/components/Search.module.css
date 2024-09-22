@@ -1,0 +1,43 @@
+.search {
+    width: 900px;
+    margin: 0 auto;
+}
+
+
+.search input {
+    width: 300px;
+    height: 45px;
+    margin: 10px 0 0 0;
+    border-radius: 10px;
+    border: none;
+    padding: 0 0 0 20px;
+    font-size: 20px;
+}
+
+.search input:focus {
+    outline: none;
+    border: 2px solid #f1c40f;
+}
+
+.searchlist {
+    position: relative;
+    margin-top: 5px;
+    height: auto;
+}
+
+.searchlist ul {
+    position: absolute;
+    background: rgba(172, 172, 172, 0.5);
+    border-bottom: 2px solid #ddd;
+    height: 50px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    top: 0;
+    left: 0;
+}
+
+.search ul li {
+    color: #353535;
+    font-size: 1.7rem;
+}

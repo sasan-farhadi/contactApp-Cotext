@@ -21,6 +21,6 @@ ul li {
     transition: .2s all ease-in-out;
 }
 
-ul li:hover {
+header ul li:hover {
     color: #f1c40f;
 }
