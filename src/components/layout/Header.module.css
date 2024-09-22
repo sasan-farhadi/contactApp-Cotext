@@ -7,13 +7,13 @@ header {
 
 
 
-ul {
+header ul {
     display: flex;
     gap: 200px;
     justify-content: center;
 }
 
-ul li {
+header ul li {
     list-style: none;
     color: #fff;
     font-weight: 600;

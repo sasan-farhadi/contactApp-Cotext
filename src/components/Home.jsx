@@ -1,13 +1,41 @@
 import styles from './Home.module.css'
 import { FcContacts } from "react-icons/fc";
 import inputs from '../constant/inputs';
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { ContactContext } from '../App';
 import { regex, regexEn } from './helpers/regex'
 import { useNavigate } from 'react-router-dom';
-import Search from './Search';
+import Error from './Error';
+import { useReducer } from 'react';
 
 const Home = () => {
+
+    const saveLoaclstorage = () => {
+        localStorage.setItem("contacts", JSON.stringify(contacts))
+    }
+
+    useEffect(() => {
+        localStorage.setItem("contacts", JSON.stringify(contacts))
+    })
+
+
+    const reducer = (state, action) => {
+        switch (action) {
+            case "keyboard":
+                return state = "Please Set Your Keyboard To English!"
+            case "valid":
+                return state = "enter valid data!"
+            case "email":
+                return state = "enter valid email"
+            case "none":
+                return state = "none"
+            default:
+                throw new Error("Invalid value")
+        }
+    }
+    const [alert, dispatch] = useReducer(reducer, "")
+    console.log(alert)
+
 
     const {
         contact,
@@ -29,26 +57,18 @@ const Home = () => {
         if (regexEn.test(value)) {
             setContact(contact => ({ ...contact, [name]: value }))
         } else {
-            alert("Please Set Your Keyboard To English!")
+            dispatch("keyboard")
             return
         }
     }
 
-    const saveLoaclstorage = () => {
-        localStorage.setItem("contacts", JSON.stringify(contacts))
-    }
-
-    useEffect(() => {
-        localStorage.setItem("contacts", JSON.stringify(contacts))
-    })
-
     const addHanlder = () => {
 
         if (!contact.fullname || !contact.email || !contact.phone) {
-            alert("enter valid data!")
+            dispatch("valid")
             return
         } else if (!contact.email.match(regex)) {
-            alert("enter valid email")
+            dispatch("email")
             return
         }
 
@@ -60,6 +80,7 @@ const Home = () => {
         setContact({
             id: '', fullname: '', email: '', phone: ''
         })
+        dispatch("none")
     }
 
 
@@ -82,6 +103,11 @@ const Home = () => {
 
     return (
         <>
+            <div className="error">
+                {
+                    alert && <Error alert={alert} display={"block"} />
+                }
+            </div>
             <div className={styles.contact}>
                 <div>
                     <h1><FcContacts size={80} /></h1>
