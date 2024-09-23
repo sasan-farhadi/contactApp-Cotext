@@ -11,6 +11,7 @@ const ListItem = ({ data: { id, fullname, email, phone } }) => {
 
     return (
         <tr>
+            <td><input type="checkbox" name="" id="" style={{ transform: "scale(1.2)" }} /></td>
             <td>{fullname}</td>
             <td>{email}</td>
             <td>{phone}</td>
