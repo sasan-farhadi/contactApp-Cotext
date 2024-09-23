@@ -37,11 +37,20 @@
 }
 
 .search ul li {
-    background: rgba(214, 214, 214, 0.9);
+    display: flex;
+    background: #fff;
     border-bottom: 2px solid #ddd;
     color: #353535;
     font-size: 1.7rem;
     list-style: none;
+    padding: 10px 30px;
+    border-radius: 10px;
+    justify-content: space-between;
+    transition: all .1s ease-in-out;
+}
+
+.search ul li:hover {
+    transform: scale(1.03);
 }
 
 select {
@@ -51,4 +60,11 @@ select {
     margin-left: 10px;
     font-weight: 600;
     text-align: center;
+}
+
+.searchlist button {
+    border: none;
+    background: none;
+    margin-left: 5px;
+    cursor: pointer;
 }

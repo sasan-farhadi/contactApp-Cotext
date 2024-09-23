@@ -14,7 +14,6 @@ const ListItem = ({ data: { id, fullname, email, phone } }) => {
     } = useContext(ContactContext)
 
     const deleteHandler = (id) => {
-        console.log(contacts, id)
         const newContacts = contacts.filter((x) => x.id !== id)
         setContacts(newContacts)
         localStorage.setItem("contacts", JSON.stringify(newContacts))
@@ -41,8 +40,10 @@ const ListItem = ({ data: { id, fullname, email, phone } }) => {
             <td>{fullname}</td>
             <td>{email}</td>
             <td>{phone}</td>
-            <td><button className={styles.edit} onClick={() => editHandler(id)}>Edit</button></td>
-            <td><button className={styles.delete} onClick={() => deleteHandler(id)}>Delete</button></td>
+            <td><button className={styles.edit} 
+            onClick={() => editHandler(id)}>Edit</button></td>
+            <td><button className={styles.delete} 
+            onClick={() => deleteHandler(id)}>Delete</button></td>
         </tr>
     )
 }
