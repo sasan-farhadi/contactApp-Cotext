@@ -3,16 +3,13 @@ import styles from './Search.module.css'
 import { ContactContext } from '../App'
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
-import { useNavigate } from 'react-router-dom';
 
 const Search = () => {
 
     const {
         contacts,
-        setContact,
-        setEditRecordId,
-        setShowBtnAdd,
-        setShowBtnEdit
+        editHandler,
+        deleteHandler
     } = useContext(ContactContext)
     const [searchValue, setSearchValue] = useState([])
     const [select, setSelect] = useState("email")
@@ -27,26 +24,6 @@ const Search = () => {
             setSearchValue(contacts.filter(x => x.phone === searchText.toLowerCase().trim()))
         }
     }
-
-
-    let nav = useNavigate()
-    const editHandler = (id) => {
-        const contactEdit = contacts.find(x => x.id == id)
-        setContact(
-            {
-                fullname: contactEdit.fullname,
-                email: contactEdit.email,
-                phone: contactEdit.phone,
-            })
-        setEditRecordId(id)
-        setShowBtnAdd("none")
-        setShowBtnEdit("block")
-        nav('/add')
-    }
-
-
-
-
 
     return (
         <div className={styles.search}>
@@ -74,8 +51,14 @@ const Search = () => {
                                     {x.phone}
                                 </div>
                                 <div>
-                                    <button><FaEdit size={20} color='orange' onClick={() => editHandler(x.id)} /></button>
-                                    <button><MdDelete size={20} color='red' /></button>
+                                    <button>
+                                        <FaEdit size={20} color='orange'
+                                            onClick={() => editHandler(x.id)} />
+                                    </button>
+                                    <button>
+                                        <MdDelete size={20} color='red'
+                                            onClick={() => deleteHandler(x.id)} />
+                                    </button>
                                 </div>
                             </li>
                         )

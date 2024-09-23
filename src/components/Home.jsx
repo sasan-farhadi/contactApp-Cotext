@@ -1,7 +1,7 @@
 import styles from './Home.module.css'
 import { FcContacts } from "react-icons/fc";
 import inputs from '../constant/inputs';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import { ContactContext } from '../App';
 import { regex, regexEn } from './helpers/regex'
 import { useNavigate } from 'react-router-dom';

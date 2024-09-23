@@ -1,7 +1,7 @@
 import Home from "./components/Home"
-import { Routes, Route, Navigate } from 'react-router-dom'
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom'
 import List from "./components/List"
-import { createContext, useReducer, useState } from "react"
+import { createContext, useState } from "react"
 export const ContactContext = createContext()
 
 const App = () => {
@@ -13,6 +13,31 @@ const App = () => {
 
   const [showBtnAdd, setShowBtnAdd] = useState("block")
   const [showBtnEdit, setShowBtnEdit] = useState("none")
+
+
+
+  let nav = useNavigate()
+  const editHandler = (id) => {
+    const contactEdit = contacts.find(x => x.id == id)
+    setContact(
+      {
+        fullname: contactEdit.fullname,
+        email: contactEdit.email,
+        phone: contactEdit.phone,
+      })
+    setEditRecordId(id)
+    setShowBtnAdd("none")
+    setShowBtnEdit("block")
+    nav('/add')
+  }
+
+
+
+  const deleteHandler = (id) => {
+    const newContacts = contacts.filter((x) => x.id !== id)
+    setContacts(newContacts)
+    localStorage.setItem("contacts", JSON.stringify(newContacts))
+  }
 
   return (
     <div>
@@ -27,7 +52,9 @@ const App = () => {
           setShowBtnAdd,
           showBtnAdd,
           setShowBtnEdit,
-          showBtnEdit
+          showBtnEdit,
+          editHandler,
+          deleteHandler
         }}>
 
         <Routes>
