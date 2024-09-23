@@ -7,7 +7,13 @@ import { useNavigate } from 'react-router-dom';
 
 const Search = () => {
 
-    const { contacts, setContact, setEditRecordId ,setShowBtnAdd , setShowBtnEdit} = useContext(ContactContext)
+    const {
+        contacts,
+        setContact,
+        setEditRecordId,
+        setShowBtnAdd,
+        setShowBtnEdit
+    } = useContext(ContactContext)
     const [searchValue, setSearchValue] = useState([])
     const [select, setSelect] = useState("email")
 
@@ -21,6 +27,7 @@ const Search = () => {
             setSearchValue(contacts.filter(x => x.phone === searchText.toLowerCase().trim()))
         }
     }
+
 
     let nav = useNavigate()
     const editHandler = (id) => {
@@ -36,6 +43,11 @@ const Search = () => {
         setShowBtnEdit("block")
         nav('/add')
     }
+
+
+
+
+
     return (
         <div className={styles.search}>
             <input
@@ -57,6 +69,9 @@ const Search = () => {
                             <li>
                                 <div>
                                     {x.fullname}
+                                </div>
+                                <div>
+                                    {x.phone}
                                 </div>
                                 <div>
                                     <button><FaEdit size={20} color='orange' onClick={() => editHandler(x.id)} /></button>

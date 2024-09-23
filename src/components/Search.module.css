@@ -28,7 +28,7 @@
 .searchlist ul {
     position: absolute;
     height: 50px;
-    width: 300px;
+    width: 400px;
     text-align: center;
     top: 0;
     left: 0;
@@ -41,12 +41,13 @@
     background: #fff;
     border-bottom: 2px solid #ddd;
     color: #353535;
-    font-size: 1.7rem;
+    font-size: 1rem;
     list-style: none;
-    padding: 10px 30px;
+    padding: 10px 0;
     border-radius: 10px;
     justify-content: space-between;
     transition: all .1s ease-in-out;
+    padding: 5px 10px;
 }
 
 .search ul li:hover {
