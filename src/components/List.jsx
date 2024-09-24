@@ -17,7 +17,7 @@ const List = () => {
                 <table>
                     <thead>
                         <tr>
-                            <th><input type="checkbox" name="" id="" style={{ transform: "scale(1.3)" }} /></th>
+                            <th></th>
                             <th>Full Name</th>
                             <th>Email</th>
                             <th>Phone</th>
