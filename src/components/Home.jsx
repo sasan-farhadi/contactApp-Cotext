@@ -34,8 +34,6 @@ const Home = () => {
         }
     }
     const [alert, dispatch] = useReducer(reducer, "")
-    console.log(alert)
-
 
     const {
         contact,

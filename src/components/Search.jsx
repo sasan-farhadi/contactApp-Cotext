@@ -34,7 +34,7 @@ const Search = () => {
                 onChange={e => searchHandler(e)}
             />
             <select value={select} onChange={e => setSelect(e.target.value)} >
-                <option value={-1} disabled selected>Search Type</option>
+                <option value={-1} >Search Type</option>
                 <option value="fullname" >Name</option>
                 <option value="email">Email</option>
                 <option value="phone">Phone</option>
