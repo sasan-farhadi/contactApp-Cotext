@@ -22,7 +22,6 @@ const ListItem = ({ data: { id, fullname, email, phone } }) => {
         //     checkId.splice(index, 1);
         //     setCheckId([...checkId]);
         // }
-        // console.log(checkId)
     }
     console.log(checkId)
 
