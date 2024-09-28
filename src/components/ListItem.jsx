@@ -14,14 +14,6 @@ const ListItem = ({ data: { id, fullname, email, phone } }) => {
         if (e.target.checked) {
             setCheckId(checkId => [...checkId, ids])
         }
-        // console.log(ids)
-        // if (e.target.checked) {
-        //     setCheckId(x => ([...x, ids]))
-        // } else {
-        //     let index = checkId.findIndex((x) => x === ids);
-        //     checkId.splice(index, 1);
-        //     setCheckId([...checkId]);
-        // }
     }
     console.log(checkId)
 
